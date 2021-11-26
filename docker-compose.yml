@@ -20,6 +20,8 @@ services:
       - "9001:9001"
     volumes:
       - "${LOCAL_BASE_PATH}/mosquitto:/mosquitto"
+      - "${LOCAL_BASE_PATH}/mosquitto/data:/mosquitto/data"
+      - "${LOCAL_BASE_PATH}/mosquitto/log:/mosquitto/log"
     network_mode: host
 
   influxdb:
