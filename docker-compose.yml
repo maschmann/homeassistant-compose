@@ -51,7 +51,7 @@ services:
     volumes:
       - "${LOCAL_BASE_PATH}/deconz:/opt/deCONZ"
     devices:
-      - /dev/ttyUSB0
+      - /dev/ttyACM0
     environment:
       - TZ=Europe/Berlin
       - DECONZ_WEB_PORT=80
