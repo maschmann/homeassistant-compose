@@ -47,16 +47,16 @@ services:
     restart: unless-stopped
     privileged: true
     ports: 
-      - "8085:80"
-      - "4435:443"
+      - "8085:8085"
+      - "4435:4435"
     volumes:
       - "${LOCAL_BASE_PATH}/deconz:/opt/deCONZ"
     devices:
       - "${DECONZ_USB_DEVICE:-/dev/ttyACM0}"
     environment:
       - "TZ=Europe/Berlin"
-      - "DECONZ_WEB_PORT=80"
-      - "DECONZ_WS_PORT=443"
+      - "DECONZ_WEB_PORT=8085"
+      - "DECONZ_WS_PORT=4435"
       - "DEBUG_INFO=1"
       - "DEBUG_APS=0"
       - "DEBUG_ZCL=0"
@@ -65,3 +65,4 @@ services:
       - "DECONZ_DEVICE=${DECONZ_USB_DEVICE:-/dev/ttyACM0}"
       - "DECONZ_VNC_MODE=1"
       - "DECONZ_VNC_PORT=5900"
+    network_mode: host
